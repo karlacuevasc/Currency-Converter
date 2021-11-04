@@ -90,13 +90,13 @@ export const CurrencyConversion = () => {
 		// 	<Col>
 		<div className="text-center mt-5">
 			<Container className="content m-auto">
-				<Container>
+				<Container className="mb-5">
 					<h1> Currency Converter</h1>
 				</Container>
 				<br />
 				<br />
 
-				<Container>
+				<Container className="mb-5">
 					{/* <input type="text" value={first} onChange={e => setFirst(e.target.value)} />
 					<input type="text" value={second} onChange={e => setSecond(e.target.value)} /> */}
 
@@ -105,11 +105,13 @@ export const CurrencyConversion = () => {
 							<Col />
 							<Col />
 							<Col>
-								<h5 className="field">Amount</h5>
+								<h5 className="field" style={{ marginBottom: "1.75rem" }}>
+									Amount
+								</h5>
 								<input type="text" value={number} onChange={e => setNumber(parseInt(e.target.value))} />
 							</Col>
 							<Col>
-								<h5>From</h5>
+								<h5 className="field mb-4">From</h5>
 								<DropdownButton
 									className="boton1"
 									variant="warning"
@@ -126,13 +128,13 @@ export const CurrencyConversion = () => {
 									})}
 								</DropdownButton>
 							</Col>
-							<Col className="m-auto">
+							<Col className="mt-5">
 								<Button variant="success">
 									<i className="fas fa-exchange-alt" />
 								</Button>
 							</Col>
 							<Col>
-								<h5>To</h5>
+								<h5 className="field mb-4">To</h5>
 								<DropdownButton
 									className="boton2"
 									variant="warning"
@@ -154,7 +156,7 @@ export const CurrencyConversion = () => {
 						</Row>
 					</Container>
 				</Container>
-				<Container className="convert">
+				<Container className="convert" style={{ marginTop: "6rem", marginBottom: "6rem" }}>
 					<h1>
 						{number} {first} = {number * conversion[`${first}_${second}`]} {second}{" "}
 					</h1>
@@ -166,7 +168,7 @@ export const CurrencyConversion = () => {
 					onClick={() => {
 						getConversion(first, second);
 					}}>
-					Convert button
+					Convert
 				</Button>
 			</Container>
 		</div>
