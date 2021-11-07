@@ -17,7 +17,7 @@ export const CurrencyConversion = () => {
 	const [second, setSecond] = useState("JPY");
 	const [number, setNumber] = useState(0);
 	const [currencyID, setCurrencyID] = useState([]);
-	const [result, setResult] = useState(0);
+	const [searchValue, setSearchValue] = useState("");
 
 	// useEffect(() => {
 	// 	axios({
@@ -81,7 +81,13 @@ export const CurrencyConversion = () => {
 		setSecond(e);
 	};
 
-	// console.log(convert());
+	// const filterData = currencyID.filter(item => {
+	// 	if (searchValue == "") {
+	// 		return item;
+	// 	} else if (item.currencyName.toLowerCase().includes(searchValue.toLowerCase())) {
+	// 		return item;
+	// 	}
+	// });
 
 	return (
 		// <Row>
@@ -97,18 +103,19 @@ export const CurrencyConversion = () => {
 				<br />
 
 				<Container className="mb-5">
-					{/* <input type="text" value={first} onChange={e => setFirst(e.target.value)} />
-					<input type="text" value={second} onChange={e => setSecond(e.target.value)} /> */}
-
 					<Container className="buttons">
 						<Row>
 							<Col />
 							<Col />
 							<Col>
-								<h5 className="field" style={{ marginBottom: "1.75rem" }}>
-									Amount
-								</h5>
-								<input type="text" value={number} onChange={e => setNumber(parseInt(e.target.value))} />
+								<h5 className="field">Amount</h5>
+								<input
+									type="number"
+									value={number}
+									onChange={e =>
+										setNumber(e.target.value) ? setNumber(parseInt(e.target.value)) : 0
+									}
+								/>
 							</Col>
 							<Col>
 								<h5 className="field mb-4">From</h5>
@@ -118,37 +125,66 @@ export const CurrencyConversion = () => {
 									id="dropdown-item-button"
 									title={first}
 									value={first}
-									onSelect={firstHandleSelect}>
-									{currencyID.map(item => {
-										return (
-											<Dropdown.Item as="button" key={item.id} eventKey={item.id}>
-												{item.id} - {item.currencyName}
-											</Dropdown.Item>
-										);
-									})}
+									onSelect={firstHandleSelect}
+									onKeyUp={e => setSearchValue(e.target.value)}>
+									<input className="input1" />
+									{currencyID
+										.filter(item => {
+											if (searchValue == "") {
+												return item;
+											} else if (
+												item.currencyName.toLowerCase().includes(searchValue.toLowerCase()) &&
+												item.id.toLowerCase().includes(searchValue.toLowerCase())
+											) {
+												return item;
+											}
+										})
+										.map(item => {
+											return (
+												<Dropdown.Item as="button" key={item.id} eventKey={item.id}>
+													{item.id} - {item.currencyName}
+												</Dropdown.Item>
+											);
+										})}
 								</DropdownButton>
 							</Col>
 							<Col className="mt-5">
-								<Button variant="success">
+								<Button
+									variant="success"
+									onClick={() => (setFirst(second) ? setFirst(second) : setSecond(first))}>
 									<i className="fas fa-exchange-alt" />
 								</Button>
 							</Col>
 							<Col>
 								<h5 className="field mb-4">To</h5>
+
 								<DropdownButton
 									className="boton2"
 									variant="warning"
 									id="dropdown-item-button"
 									title={second}
 									value={second}
-									onSelect={secondHandleSelect}>
-									{currencyID.map(item => {
-										return (
-											<Dropdown.Item as="button" key={item.id} eventKey={item.id}>
-												{item.id} - {item.currencyName}
-											</Dropdown.Item>
-										);
-									})}
+									onSelect={secondHandleSelect}
+									onKeyUp={e => setSearchValue(e.target.value)}>
+									<input className="input2" />
+									{currencyID
+										.filter(item => {
+											if (searchValue == "") {
+												return item;
+											} else if (
+												item.currencyName.toLowerCase().includes(searchValue.toLowerCase()) &&
+												item.id.toLowerCase().includes(searchValue.toLowerCase())
+											) {
+												return item;
+											}
+										})
+										.map(item => {
+											return (
+												<Dropdown.Item as="button" key={item.id} eventKey={item.id}>
+													{item.id} - {item.currencyName}
+												</Dropdown.Item>
+											);
+										})}
 								</DropdownButton>
 							</Col>
 							<Col />
@@ -156,9 +192,11 @@ export const CurrencyConversion = () => {
 						</Row>
 					</Container>
 				</Container>
-				<Container className="convert" style={{ marginTop: "6rem", marginBottom: "6rem" }}>
+
+				<Container className="convert">
 					<h1>
-						{number} {first} = {number * conversion[`${first}_${second}`]} {second}{" "}
+						{number} {first} ={" "}
+						{conversion[`${first}_${second}`] ? number * conversion[`${first}_${second}`] : 0} {second}
 					</h1>
 				</Container>
 

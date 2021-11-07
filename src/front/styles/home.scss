@@ -1,0 +1,32 @@
+body{
+    background-image: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 7in;
+}
+
+.field{
+    margin-bottom: 1.75rem;
+}
+
+
+
+.input1, .input2{
+    width: 100%;
+	margin-bottom: 30px;
+	border-radius: 6px;
+	padding-right: 3px;
+}
+
+
+
+.convert{
+    margin-top: 6rem;
+    margin-bottom: 4srem 
+}
