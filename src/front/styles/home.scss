@@ -1,7 +1,30 @@
 body{
-    background-image: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-image: url("../img/japanese-art.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+   
+}
+
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+    .body{
+    background-image: url("../img/japanese-art.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+ 
+    }
 }
 
 .content{
@@ -10,6 +33,22 @@ body{
     padding: 40px;
     width: 7in;
 }
+
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+    .content{
+        background-color: white;
+        border-radius: 20px;
+        padding: 40px;
+        width: 4in;
+
+    }
+    
+}
+
+
 
 .field{
     margin-bottom: 1.75rem;
@@ -24,7 +63,10 @@ body{
 	padding-right: 3px;
 }
 
-
+.dropdown-menu.show{
+    height: 200px;
+    overflow-y: scroll;
+}
 
 .convert{
     margin-top: 6rem;

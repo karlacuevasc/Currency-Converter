@@ -81,14 +81,6 @@ export const CurrencyConversion = () => {
 		setSecond(e);
 	};
 
-	// const filterData = currencyID.filter(item => {
-	// 	if (searchValue == "") {
-	// 		return item;
-	// 	} else if (item.currencyName.toLowerCase().includes(searchValue.toLowerCase())) {
-	// 		return item;
-	// 	}
-	// });
-
 	return (
 		// <Row>
 		// 	<Col></Col>
@@ -105,9 +97,9 @@ export const CurrencyConversion = () => {
 				<Container className="mb-5">
 					<Container className="buttons">
 						<Row>
-							<Col />
-							<Col />
-							<Col>
+							{/* <Col />
+							<Col /> */}
+							<Col className="pb-5">
 								<h5 className="field">Amount</h5>
 								<input
 									type="number"
@@ -187,8 +179,8 @@ export const CurrencyConversion = () => {
 										})}
 								</DropdownButton>
 							</Col>
-							<Col />
-							<Col />
+							{/* <Col />
+							<Col /> */}
 						</Row>
 					</Container>
 				</Container>
@@ -196,7 +188,8 @@ export const CurrencyConversion = () => {
 				<Container className="convert">
 					<h1>
 						{number} {first} ={" "}
-						{conversion[`${first}_${second}`] ? number * conversion[`${first}_${second}`] : 0} {second}
+						{conversion[`${first}_${second}`] ? number * conversion[`${first}_${second}`].toFixed(2) : 0}{" "}
+						{second}
 					</h1>
 				</Container>
 
