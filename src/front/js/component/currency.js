@@ -88,7 +88,7 @@ export const CurrencyConversion = () => {
 		// 	<Col>
 		<div className="text-center mt-5">
 			<Container className="content m-auto">
-				<Container className="mb-5">
+				<Container className="title">
 					<h1> Currency Converter</h1>
 				</Container>
 				<br />

@@ -70,5 +70,27 @@ and (-webkit-device-pixel-ratio : 3) {
 
 .convert{
     margin-top: 6rem;
-    margin-bottom: 4srem 
+}
+
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+    .convert{
+        margin-top: 2rem;
+
+    }
+    
+}
+
+
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+    .title{
+        margin-bottom: 0.5rem;
+
+    }
+    
 }
